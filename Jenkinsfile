@@ -67,7 +67,7 @@ pipeline{
                     script{
                         withCredentials([string(credentialsId: 'dockersec', variable: 'docker_hub_cred')]) {
                             sh 'docker login -u kenappiah -p ${docker_hub_cred}'
-                            sh 'docker image push kenappiah/$JOB_NAME:latest1'
+                            sh 'docker image push kenappiah/$JOB_NAME:latest'
                     }
                 }
             }                
