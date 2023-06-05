@@ -2,10 +2,7 @@ pipeline{
     agent{
         label "build"
     }
-    tools {
-        jdk 'Java17'
-        maven 'Maven3'
-    }
+   
      stages{
         stage("Cleanup Workspace"){
             steps {
@@ -16,7 +13,27 @@ pipeline{
     
         stage("Checkout from SCM"){
             steps {
-                git branch: 'main', credentialsId: 'github', url: 'https://github.com/dmancloud/complete-prodcution-e2e-pipeline'
+                git branch: 'main', credentialsId: 'github', url: 'https://github.com/kenchedda/CI-CD-WORK1.git'
             }
+
+         }
+
+        stage("Build Application"){
+            steps {
+                sh "mvn clean package"
+            }
+
+        }
+
+        stage("Test Application"){
+            steps {
+                sh "mvn test"
+            }
+
+        }   
+
+     }
+
+}       
 
 
