@@ -52,6 +52,7 @@ pipeline{
                     waitForQualityGate abortPipeline: false, credentialsId: 'sonar'
                 }
             }
+        }
         stage('Docker image build'){
                     steps {
                         script {
@@ -72,7 +73,7 @@ pipeline{
             }                
         }
 
-        } 
+     
 
      }
 
